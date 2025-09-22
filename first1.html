@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>نموذج تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: "Cairo", sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .form-container {
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+            width: 400px;
+        }
+        
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4A4A4A;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        select:focus {
+            border-color: #74b9ff;
+            box-shadow: 0 0 5px rgba(116, 185, 255, 0.5);
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+        
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            margin-left: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        input[type="submit"],
+        input[type="reset"] {
+            background: #74b9ff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        
+        input[type="reset"] {
+            background: #ff7675;
+        }
+        
+        input[type="submit"]:hover {
+            background: #0984e3;
+        }
+        
+        input[type="reset"]:hover {
+            background: #d63031;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2> تسجيل الدخول</h2>
+        <form>
+            <label>الاسم الأول:</label>
+            <input type="text" name="first_name" required>
+
+            <label>اللقب:</label>
+            <input type="text" name="last_name" required>
+
+            <label>العنوان:</label>
+            <input type="text" name="address">
+
+            <label>اكتب الرمز:</label>
+            <input type="password" name="password" required>
+
+            <label>أعد كتابة الرمز:</label>
+            <input type="password" name="repassword" required>
+
+            <div class="radio-group">
+                <label>الجنس:</label>
+                <input type="radio" name="gender" value="male"> ذكر
+                <input type="radio" name="gender" value="female"> أنثى
+            </div>
+
+            <label>تاريخ الميلاد:</label>
+            <select name="year">
+        <option>1991</option>
+        <option>1992</option>
+        <option>1993</option>
+        <option>1994</option>
+        <option>1995</option>
+      </select>
+
+            <select name="month">
+        <option>يناير</option>
+        <option>فبراير</option>
+        <option>مارس</option>
+        <option>إبريل</option>
+        <option>مايو</option>
+      </select>
+
+            <select name="day">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+
+            <div class="checkbox-group">
+                <input type="checkbox" name="muslim"> هل أنت عربي؟<br>
+                <input type="checkbox" name="arabic"> من اين انت؟<br>
+                <input type="checkbox" name="english"> هل تحب اللغة الإنجليزية؟
+            </div>
+
+            <label> تحميل صورة شخصية:</label>
+            <input type="file" accept="image/*">
+
+            <div class="buttons">
+                <input type="submit" value="إرسال">
+                <input type="reset" value="حذف">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

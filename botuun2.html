@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>علم اليمن ↔ علم فلسطين 3D Fluid Flow</title>
+<style>
+body {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:#f0f0f0;
+  perspective:1200px;
+  font-family:sans-serif;
+  margin:0;
+}
+
+input[type="checkbox"] { display:none; }
+
+/* المربع بعلم اليمن */
+.flag {
+  width:180px;
+  height:120px;
+  cursor:pointer;
+  position:relative;
+  background: linear-gradient(to bottom, #ce1126 0 33.3%, #ffffff 33.3% 66.6%, #000000 66.6% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform-style: preserve-3d;
+  transform-origin: center bottom;
+  transition: all 2.2s cubic-bezier(0.77, 0, 0.175, 1); /* انسيابي جدًا */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* التحول إلى مثلث فلسطين مع دوران وانحناء وانكماش */
+input[type="checkbox"]:checked + .flag {
+  width:180px;
+  height:180px;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  background: transparent;
+  transform: rotateX(30deg) rotateY(200deg) scale(1.02) translateY(-10px);
+}
+
+/* المثلث الأحمر على يسار علم فلسطين */
+input[type="checkbox"]:checked + .flag::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:90px;
+  height:180px;
+  background:#ce1126;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  transition: all 2.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* الخطوط الأفقية لعلم فلسطين */
+input[type="checkbox"]:checked + .flag::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:90px;
+  width:90px;
+  height:180px;
+  background: linear-gradient(to bottom, #000000 0 33.3%, #ffffff 33.3% 66.6%, #007a3d 66.6% 100%);
+  transition: all 2.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.hint {
+  margin-top:20px;
+  color:#060606;
+  text-align:center;
+  font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="toggle">
+<label class="flag" for="toggle" title=" الله اكبر"></label>
+
+<div class="hint"> يمني وفلسطيني كلنا واحد</div>
+
+</body>
+</html>
+
